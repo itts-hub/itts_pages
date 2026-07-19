@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Яка спеціальність ІТТС тобі підходить? — Квіз</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2563eb;
+    --accent:#d946ef;
+    --dark:#1e293b;
+    --light:#f8fafc;
+    --gradient:linear-gradient(135deg,#2563eb 0%,#d946ef 100%);
+    --card-shadow:0 10px 25px -5px rgba(0,0,0,0.12), 0 8px 10px -6px rgba(0,0,0,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Open Sans',sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:800;margin:0;}
+  .app{width:100%;max-width:480px;}
+
+  /* progress */
+  .progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .progress-track{flex:1;height:8px;background:#e2e8f0;border-radius:99px;overflow:hidden;}
+  .progress-fill{height:100%;background:var(--gradient);border-radius:99px;transition:width .35s ease;}
+  .progress-label{font-size:.8rem;font-weight:700;color:#64748b;white-space:nowrap;}
+
+  .card{
+    background:white;
+    border-radius:24px;
+    padding:28px 24px;
+    box-shadow:var(--card-shadow);
+    border:2px solid #e2e8f0;
+  }
+
+  /* start screen */
+  .start-icon{
+    width:72px;height:72px;border-radius:50%;
+    background:var(--gradient);
+    display:flex;align-items:center;justify-content:center;
+    font-size:2rem;margin:0 auto 18px;
+    box-shadow:0 10px 20px rgba(37,99,235,.3);
+  }
+  .start-screen{text-align:center;}
+  .start-screen h1{font-size:1.5rem;margin-bottom:12px;line-height:1.3;}
+  .start-screen p{color:#64748b;font-size:.98rem;margin-bottom:24px;line-height:1.5;}
+  .start-meta{
+    display:flex;justify-content:center;gap:18px;margin-bottom:26px;
+    font-size:.8rem;color:#94a3b8;font-weight:700;
+  }
+  .start-meta span{display:flex;align-items:center;gap:6px;}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;
+    padding:16px 20px;
+    border-radius:50px;
+    font-family:'Open Sans',sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    border:none;
+    cursor:pointer;
+    transition:.2s;
+    text-decoration:none;
+  }
+  .btn-primary{background:var(--gradient);color:white;box-shadow:0 10px 20px rgba(37,99,235,.25);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 24px rgba(37,99,235,.32);}
+  .btn-ghost{background:white;color:var(--primary);border:2px solid var(--primary);margin-top:10px;}
+  .btn-ghost:hover{background:#eff6ff;}
+
+  /* question screen */
+  .q-eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
+  .q-title{font-size:1.25rem;line-height:1.35;margin-bottom:22px;}
+  .options{display:flex;flex-direction:column;gap:12px;}
+  .option{
+    text-align:left;
+    background:#f8fafc;
+    border:2px solid #e2e8f0;
+    border-radius:16px;
+    padding:16px 18px;
+    font-family:'Open Sans',sans-serif;
+    font-size:.96rem;
+    font-weight:600;
+    color:var(--dark);
+    cursor:pointer;
+    transition:.15s;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .option:hover{border-color:var(--primary);background:#eff6ff;}
+  .option:active{transform:scale(.98);}
+  .option-emoji{font-size:1.3rem;flex-shrink:0;}
+
+  /* result screen */
+  .result-badge{
+    display:inline-block;
+    background:#fdf4ff;color:var(--accent);
+    font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 14px;border-radius:50px;margin-bottom:14px;
+  }
+  .result-title{font-size:1.35rem;line-height:1.3;margin-bottom:6px;}
+  .result-code{font-size:.85rem;color:#64748b;font-weight:700;margin-bottom:16px;}
+  .result-desc{font-size:.95rem;color:#475569;line-height:1.6;margin-bottom:10px;}
+  .result-why{
+    background:#f8fafc;border-left:4px solid var(--accent);
+    border-radius:0 12px 12px 0;
+    padding:14px 16px;
+    font-size:.88rem;color:#475569;
+    margin:18px 0 22px;
+  }
+  .result-why b{color:var(--dark);}
+
+  .fine-print{text-align:center;font-size:.78rem;color:#94a3b8;margin-top:16px;line-height:1.5;}
+
+  @media (max-width:400px){
+    .card{padding:22px 18px;border-radius:18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="progress-wrap" id="progressWrap" style="display:none;">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-label" id="progressLabel">0/5</div>
+  </div>
+
+  <div class="card" id="card">
+    <!-- content injected by JS -->
+  </div>
+
+  <p class="fine-print">Кафедра інформаційно-телекомунікаційних технологій та систем (ІТТС) · ІФНТУНГ</p>
+</div>
+
+<script>
+(function(){
+
+  // ---------- DATA ----------
+  var questions = [
+    {
+      eyebrow: "Питання 1 з 5",
+      title: "Що тебе більше драйвить?",
+      options: [
+        { emoji: "🔧", text: "Розібрати гаджет і зрозуміти, як він працює зсередини", score: {cps:2, web:1} },
+        { emoji: "💻", text: "Писати сайти й додатки, якими користуються тисячі людей", score: {web:2, ist:1} },
+        { emoji: "🤖", text: "Автоматизувати процес так, щоб він працював сам", score: {iot:2, cps:1} },
+        { emoji: "📊", text: "Аналізувати дані й вибудовувати з хаосу систему", score: {ist:2, iot:1} }
+      ]
+    },
+    {
+      eyebrow: "Питання 2 з 5",
+      title: "Уяви свій ідеальний проєкт після випуску.",
+      options: [
+        { emoji: "🌐", text: "Мережа «розумного» підприємства, керована через веб", score: {web:2} },
+        { emoji: "🦾", text: "Робот або дрон, що виконує задачі самостійно", score: {cps:2} },
+        { emoji: "📡", text: "Розумний дім чи місто з десятками з'єднаних датчиків", score: {iot:2} },
+        { emoji: "🗂️", text: "Аналітична платформа чи ІТ-система для бізнесу", score: {ist:2} }
+      ]
+    },
+    {
+      eyebrow: "Питання 3 з 5",
+      title: "Який шкільний предмет тобі найближчий?",
+      options: [
+        { emoji: "⚡", text: "Фізика та електротехніка", score: {cps:1, web:1} },
+        { emoji: "🖥️", text: "Інформатика й програмування", score: {web:1, ist:1} },
+        { emoji: "➗", text: "Математика та логіка", score: {ist:1, iot:1} },
+        { emoji: "🛠️", text: "Технології — люблю майструвати руками", score: {cps:1, iot:1} }
+      ]
+    },
+    {
+      eyebrow: "Питання 4 з 5",
+      title: "З ким хочеш працювати в майбутньому?",
+      options: [
+        { emoji: "📶", text: "Телеком-оператори, інтернет-провайдери", score: {web:2} },
+        { emoji: "🏭", text: "Виробничі підприємства, роботизовані лінії", score: {cps:2} },
+        { emoji: "🚀", text: "IoT-стартапи, розумні пристрої", score: {iot:2} },
+        { emoji: "🏢", text: "ІТ-компанії, бізнес-аналітика, інтеграції", score: {ist:2} }
+      ]
+    },
+    {
+      eyebrow: "Питання 5 з 5",
+      title: "Обери свою суперсилу.",
+      options: [
+        { emoji: "🔗", text: "З'єдную будь-яке обладнання в єдину мережу", score: {web:2} },
+        { emoji: "⚙️", text: "Можу «оживити» майже будь-який механізм", score: {cps:2} },
+        { emoji: "🧩", text: "Бачу зв'язки між пристроями, яких не бачать інші", score: {iot:2} },
+        { emoji: "🧠", text: "Легко систематизую хаос даних і процесів", score: {ist:2} }
+      ]
+    }
+  ];
+
+  var results = {
+    web: {
+      title: "Програмне забезпечення веборієнтованих систем та мереж",
+      code: "Спеціальність 172 (G5) / 174 (G7) · бакалавр · міждисциплінарна ОП",
+      desc: "Ти на межі заліза й коду: розумієш, як сигнал доходить від антени до хмари, і вмієш підключити до цього веб-рівень.",
+      why: "Твої відповіді показують потяг і до мереж/обладнання, і до програмування — це саме та синергія G5+G7, яку дає ця програма.",
+      icon: "🌐"
+    },
+    cps: {
+      title: "Програмне забезпечення кіберфізичних та робототехнічних систем",
+      code: "Спеціальність 174 (G7) · бакалавр",
+      desc: "Ти про те, щоб змушувати механізми рухатись і думати самостійно — від промислового робота до автономного дрона.",
+      why: "У твоїх відповідях переважає інтерес до заліза, механіки й автоматизації процесів — прямий шлях у робототехніку.",
+      icon: "🤖"
+    },
+    iot: {
+      title: "Системна інженерія — Інтернет речей",
+      code: "Спеціальність 174 (G7) · бакалавр",
+      desc: "Ти бачиш світ як мережу з'єднаних пристроїв — розумні будинки, міста, сенсори, які постійно обмінюються даними.",
+      why: "Тебе тягне і до автоматизації, і до пристроїв, що спілкуються між собою, — це і є суть IoT-інженерії.",
+      icon: "📡"
+    },
+    ist: {
+      title: "Інформаційні системи та технології",
+      code: "Спеціальність F6 · бакалавр",
+      desc: "Ти більше про структуру, дані й логіку — побудову інформаційних систем, які тримають бізнес на ногах.",
+      why: "У відповідях переважає інтерес до аналітики, логіки й систематизації — фундамент для ІТ-систем та даних.",
+      icon: "🗂️"
+    }
+  };
+
+  var TG_LINK = "https://t.me/itts_vstup_2026";
+  var SITE_LINK = "https://nung.edu.ua/department/kafedra-informaciyno-telekomunikaciynikh-tekhnologiy-ta-sistem/vstupniku";
+
+  // ---------- STATE ----------
+  var current = -1; // -1 = start screen
+  var scores = {web:0, cps:0, iot:0, ist:0};
+
+  var card = document.getElementById('card');
+  var progressWrap = document.getElementById('progressWrap');
+  var progressFill = document.getElementById('progressFill');
+  var progressLabel = document.getElementById('progressLabel');
+
+  function renderStart(){
+    progressWrap.style.display = 'none';
+    card.innerHTML =
+      '<div class="start-screen">' +
+        '<div class="start-icon" aria-hidden="true">🎯</div>' +
+        '<h1>Яка спеціальність ІТТС тобі підходить?</h1>' +
+        '<p>5 швидких запитань — і ми підкажемо, яка з 4 освітніх програм кафедри пасує саме тобі.</p>' +
+        '<div class="start-meta"><span>⏱️ 1 хвилина</span><span>❓ 5 питань</span></div>' +
+        '<button class="btn btn-primary" id="startBtn">Почати квіз</button>' +
+      '</div>';
+    document.getElementById('startBtn').addEventListener('click', function(){
+      current = 0;
+      scores = {web:0, cps:0, iot:0, ist:0};
+      renderQuestion();
+    });
+  }
+
+  function renderQuestion(){
+    progressWrap.style.display = 'flex';
+    var pct = Math.round((current) / questions.length * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = (current) + '/' + questions.length;
+
+    var q = questions[current];
+    var html = '<div class="q-eyebrow">' + q.eyebrow + '</div>';
+    html += '<div class="q-title">' + q.title + '</div>';
+    html += '<div class="options">';
+    q.options.forEach(function(opt, i){
+      html += '<button class="option" data-idx="' + i + '">' +
+                '<span class="option-emoji" aria-hidden="true">' + opt.emoji + '</span>' +
+                '<span>' + opt.text + '</span>' +
+              '</button>';
+    });
+    html += '</div>';
+    card.innerHTML = html;
+
+    var btns = card.querySelectorAll('.option');
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var idx = parseInt(btn.getAttribute('data-idx'), 10);
+        var chosen = q.options[idx];
+        Object.keys(chosen.score).forEach(function(key){
+          scores[key] = (scores[key] || 0) + chosen.score[key];
+        });
+        current++;
+        if (current < questions.length){
+          renderQuestion();
+        } else {
+          renderResult();
+        }
+      });
+    });
+  }
+
+  function renderResult(){
+    progressFill.style.width = '100%';
+    progressLabel.textContent = questions.length + '/' + questions.length;
+
+    var winnerKey = Object.keys(scores).reduce(function(a,b){ return scores[a] >= scores[b] ? a : b; });
+    var r = results[winnerKey];
+
+    var html =
+      '<div style="text-align:center;">' +
+        '<div class="start-icon" aria-hidden="true">' + r.icon + '</div>' +
+        '<div class="result-badge">Твій результат</div>' +
+      '</div>' +
+      '<h2 class="result-title">' + r.title + '</h2>' +
+      '<div class="result-code">' + r.code + '</div>' +
+      '<p class="result-desc">' + r.desc + '</p>' +
+      '<div class="result-why"><b>Чому саме це:</b> ' + r.why + '</div>' +
+      '<a class="btn btn-primary" href="' + SITE_LINK + '" target="_blank" rel="noopener">🔍 Дізнатись більше про програму</a>' +
+      '<a class="btn btn-primary" style="background:#229ED9;box-shadow:none;margin-top:10px;" href="' + TG_LINK + '" target="_blank" rel="noopener">✈️ Приєднатись до чату абітурієнтів</a>' +
+      '<button class="btn btn-ghost" id="restartBtn">↺ Пройти ще раз</button>';
+
+    card.innerHTML = html;
+    document.getElementById('restartBtn').addEventListener('click', function(){
+      current = -1;
+      renderStart();
+    });
+  }
+
+  renderStart();
+})();
+</script>
+
+</body>
+</html>
