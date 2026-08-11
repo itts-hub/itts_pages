@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вступ до магістратури 2026 | Кафедра ІТТС ІФНТУНГ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#f6f9fc;
+    --bg-1:#ffffff;
+    --bg-2:#eef3f9;
+    --bg-3:#e4ecf5;
+    --amber:#f2a53c;
+    --amber-text:#a8690a;
+    --amber-tint:rgba(242,165,60,.12);
+    --amber-dim:rgba(242,165,60,.4);
+    --teal:#14b892;
+    --teal-text:#0b7a5e;
+    --teal-tint:rgba(20,184,146,.09);
+    --teal-dim:rgba(20,184,146,.4);
+    --red:#c22a20;
+    --red-tint:rgba(194,42,32,.07);
+    --red-dim:rgba(194,42,32,.3);
+    --navy:#0d2036;
+    --text-hi:#0d2036;
+    --text-mid:#51667e;
+    --text-low:#8598ad;
+    --border:rgba(13,32,54,0.10);
+    --shadow:0 1px 2px rgba(13,32,54,.04), 0 6px 16px rgba(13,32,54,.06);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-0);
+    color:var(--text-hi);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,249,252,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:600; font-size:15px;}
+  .brand-mark{width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,var(--teal),var(--amber)); flex-shrink:0;}
+  .navlinks{display:flex; gap:24px; font-size:14px; color:var(--text-mid);}
+  .navlinks a{text-decoration:none; transition:color .15s;}
+  .navlinks a:hover{color:var(--amber-text);}
+  .nav-cta{
+    background:var(--teal); color:#fff; font-weight:600; font-size:13px;
+    padding:9px 16px; border-radius:8px; text-decoration:none; white-space:nowrap;
+  }
+  @media(max-width:700px){ .navlinks{display:none;} }
+
+  .hero{padding:60px 0 36px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--teal-text); background:var(--teal-tint); border:1px solid var(--teal-dim);
+    padding:6px 12px; border-radius:999px; margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--teal);}
+  .hero h1{font-size:42px; line-height:1.15; margin-bottom:16px; max-width:720px;}
+  .hero h1 span{color:var(--amber-text);}
+  .hero p{font-size:17px; color:var(--text-mid); max-width:580px; margin-bottom:32px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--amber); color:#2b1d02; font-weight:600; font-size:15px;
+    padding:14px 24px; border-radius:10px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s; box-shadow:var(--shadow);
+  }
+  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-secondary{
+    background:var(--bg-1); color:var(--text-hi); font-weight:600; font-size:15px;
+    padding:14px 24px; border-radius:10px; text-decoration:none; border:1px solid var(--border);
+  }
+  @media(max-width:640px){ .hero h1{font-size:30px;} }
+
+  .status{
+    background:var(--teal-tint);
+    border:1px solid var(--teal-dim); border-radius:16px;
+    padding:22px 26px; margin-top:8px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .status-icon{
+    width:44px; height:44px; border-radius:50%; background:var(--teal); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:700; flex-shrink:0;
+  }
+  .status-text b{font-family:'Space Grotesk'; display:block; font-size:16px; margin-bottom:2px; color:var(--text-hi);}
+  .status-text span{color:var(--text-mid); font-size:14px;}
+  .status-num{margin-left:auto; text-align:right;}
+  .status-num .n{font-family:'IBM Plex Mono'; font-size:26px; font-weight:600; color:var(--teal-text);}
+  .status-num .l{font-size:12px; color:var(--text-low); text-transform:uppercase; letter-spacing:.05em;}
+
+  .status-note{
+    margin-top:12px; font-size:13px; color:var(--amber-text); background:var(--amber-tint);
+    border:1px solid var(--amber-dim); border-radius:10px; padding:10px 14px;
+  }
+
+  .countdown-section{padding:32px 0;}
+  .countdown-card{
+    background:var(--bg-1); border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow);
+    padding:26px 30px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .countdown-label b{font-family:'Space Grotesk'; font-size:17px; display:block; margin-bottom:4px;}
+  .countdown-label span{color:var(--text-mid); font-size:14px;}
+  .countdown-timer{display:flex; gap:10px;}
+  .cd-unit{
+    background:var(--bg-2); border:1px solid var(--border); border-radius:10px;
+    padding:12px 14px; min-width:64px; text-align:center;
+  }
+  .cd-unit .v{font-family:'IBM Plex Mono'; font-size:24px; font-weight:600; color:var(--amber-text);}
+  .cd-unit .u{font-size:10px; color:var(--text-low); text-transform:uppercase; letter-spacing:.06em; margin-top:2px;}
+
+  section{padding:44px 0;}
+  .sec-eyebrow{font-family:'IBM Plex Mono'; font-size:12px; color:var(--amber-text); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px;}
+  .sec-title{font-size:26px; margin-bottom:12px;}
+  .sec-sub{color:var(--text-mid); max-width:600px; margin-bottom:32px; font-size:15px;}
+
+  /* ABOUT */
+  .about-card{
+    background:var(--bg-1); border:1px solid var(--border); border-radius:16px; padding:28px 30px; box-shadow:var(--shadow);
+  }
+  .about-card p{color:var(--text-mid); font-size:15px; margin-bottom:18px;}
+  .about-card a{color:var(--teal-text); text-decoration:underline;}
+  .detail-list{list-style:none;}
+  .detail-list li{
+    display:flex; gap:10px; font-size:14px; color:var(--text-mid); padding:8px 0; border-top:1px solid var(--border);
+  }
+  .detail-list li:first-child{border-top:none;}
+  .detail-list b{color:var(--text-hi); min-width:150px; flex-shrink:0;}
+
+  /* TIMELINE */
+  .timeline{position:relative; padding-left:8px;}
+  .tl-line{position:absolute; left:19px; top:6px; bottom:6px; width:2px; background:var(--border);}
+  .tl-item{position:relative; padding-left:52px; padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{
+    position:absolute; left:0; top:0; width:40px; height:40px; border-radius:50%;
+    background:var(--bg-2); border:2px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono'; font-size:13px; color:var(--text-low);
+  }
+  .tl-item.done .tl-dot{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .tl-item.current .tl-dot{background:var(--amber); border-color:var(--amber); color:#2b1d02; box-shadow:0 0 0 5px var(--amber-tint);}
+  .tl-date{font-family:'IBM Plex Mono'; font-size:13px; color:var(--amber-text); margin-bottom:4px;}
+  .tl-item.done .tl-date{color:var(--teal-text);}
+  .tl-h{font-family:'Space Grotesk'; font-size:17px; margin-bottom:4px;}
+  .tl-p{color:var(--text-mid); font-size:14px; max-width:540px;}
+  .tag-current{
+    display:inline-block; font-family:'IBM Plex Mono'; font-size:10px; text-transform:uppercase;
+    background:var(--amber); color:#2b1d02; padding:2px 8px; border-radius:6px; margin-left:8px; vertical-align:middle;
+  }
+
+  .callout{
+    background:var(--red-tint); border:1px solid var(--red-dim); border-radius:14px;
+    padding:22px 24px; margin:36px 0;
+  }
+  .callout .ch{font-family:'Space Grotesk'; color:var(--red); font-size:15px; margin-bottom:8px; display:flex; align-items:center; gap:8px;}
+  .callout p{color:var(--text-mid); font-size:14px;}
+  .callout b{color:var(--text-hi);}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:640px){ .grid2{grid-template-columns:1fr;} }
+  .info-card{
+    background:var(--bg-1); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:var(--shadow);
+  }
+  .info-card .ic-h{font-family:'Space Grotesk'; font-size:16px; margin-bottom:8px;}
+  .info-card .ic-p{color:var(--text-mid); font-size:14px;}
+
+  /* CAREER / PARTNERS */
+  .career-list{margin:18px 0 0; padding-left:0; list-style:none;}
+  .career-list li{
+    padding:14px 0 14px 0; border-top:1px solid var(--border); font-size:14px; color:var(--text-mid);
+  }
+  .career-list li:first-child{border-top:none;}
+  .career-list b{color:var(--text-hi); display:block; margin-bottom:3px; font-family:'Space Grotesk'; font-size:15px;}
+
+  .partner-table{width:100%; border-collapse:collapse; margin-top:8px; font-size:14px; background:var(--bg-1); border-radius:14px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow);}
+  .partner-table th, .partner-table td{ text-align:left; padding:12px 16px; border-bottom:1px solid var(--border); vertical-align:top;}
+  .partner-table tr:last-child td{border-bottom:none;}
+  .partner-table th{color:var(--text-low); font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:.05em; background:var(--bg-2);}
+  .partner-table td:first-child{font-weight:600; color:var(--text-hi); white-space:nowrap;}
+  .partner-table td{color:var(--text-mid);}
+
+  .partners-tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .partner-tag{
+    font-family:'IBM Plex Mono'; font-size:12px; color:var(--text-mid);
+    background:var(--bg-2); border:1px solid var(--border); border-radius:999px; padding:6px 12px;
+  }
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--border); padding:20px 0;}
+  .faq-q{font-family:'Space Grotesk'; font-weight:700; font-size:16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center;}
+  .faq-q::after{content:'+'; font-size:20px; color:var(--amber-text); transition:transform .2s; flex-shrink:0; margin-left:12px;}
+  details[open] .faq-q::after{transform:rotate(45deg);}
+  .faq-a{color:var(--text-mid); font-size:14px; margin-top:12px; padding-right:24px;}
+  .faq-a ul{margin:10px 0 10px 20px;}
+  .faq-a li{margin-bottom:6px;}
+  .faq-a .warn-box{
+    background:var(--red-tint); border:1px solid var(--red-dim); border-radius:10px;
+    padding:12px 14px; margin-top:12px; font-size:13.5px; color:var(--text-hi);
+  }
+  .faq-a .link-btn{
+    display:inline-block; margin-top:10px; font-size:13px; color:var(--teal-text);
+    border:1px solid var(--teal-dim); background:var(--teal-tint);
+    padding:6px 12px; border-radius:8px; text-decoration:none;
+  }
+  summary{list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+
+  .qr-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:16px;}
+  .qr-chip{display:flex; align-items:center; gap:12px; background:var(--bg-1); border:1px solid var(--border); border-radius:12px; padding:10px 14px; box-shadow:var(--shadow);}
+  .qr-chip img{width:56px; height:56px; border-radius:6px; background:#fff; padding:3px; border:1px solid var(--border);}
+  .qr-chip .qc-label{font-size:12.5px; color:var(--text-mid); max-width:150px;}
+  .qr-chip .qc-label b{display:block; color:var(--text-hi); font-size:13.5px; margin-bottom:2px;}
+
+  .faq-close{
+    margin-top:30px; background:var(--bg-2); border:1px solid var(--border); border-radius:14px; padding:24px 26px;
+  }
+  .faq-close b{font-family:'Space Grotesk'; font-size:17px; display:block; margin-bottom:10px;}
+  .faq-close p{color:var(--text-mid); font-size:14px; margin-bottom:4px;}
+  .faq-close a{color:var(--teal-text); text-decoration:underline;}
+
+  .cta-band{
+    background:linear-gradient(135deg,var(--bg-2),var(--bg-3));
+    border-radius:20px; padding:40px 32px; text-align:center; border:1px solid var(--border);
+  }
+  .cta-band h2{font-size:26px; margin-bottom:10px;}
+  .cta-band p{color:var(--text-mid); margin-bottom:24px;}
+
+  footer{border-top:1px solid var(--border); padding:32px 0; color:var(--text-low); font-size:13px; background:var(--bg-1);}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+  footer a{text-decoration:none; color:var(--text-mid);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><div class="brand-mark"></div>ІТТС · Магістратура 2026</div>
+    <div class="navlinks">
+      <a href="#about">Про програму</a>
+      <a href="#deadlines">Дедлайни</a>
+      <a href="#career">Кар'єра</a>
+      <a href="#faq">Питання</a>
+    </div>
+    <a class="nav-cta" href="https://t.me/g7_itts_magistr_2026" target="_blank">Telegram-чат ↗</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Вступна кампанія 2026 · Магістратура</div>
+    <h1>Магістратура кафедри ІТТС. <span>Твій шлях до вступу — крок за кроком.</span></h1>
+    <p>Спеціальність 174 (G7) «Автоматизація, комп'ютерно-інтегровані технології та робототехніка», ОП «Комп'ютеризовані системи управління та автоматика». Заяви приймаються до 22 серпня, 18:00.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://vstup.edbo.gov.ua" target="_blank">Кабінет вступника ↗</a>
+      <a class="btn-secondary" href="https://nung.edu.ua/department/pryymalna-komisiya/06-kalendar-vstupnoyi-kampaniyi" target="_blank">Дивитись дедлайни ↗</a>
+    </div>
+
+    <div class="status" style="margin-top:40px;">
+      <div class="status-icon">✓</div>
+      <div class="status-text">
+        <b>12 заяв вже подано</b>
+        <span>Вступники, що склали фахове випробування на кафедрі ІТТС 29 липня, вже зареєстрували заяви</span>
+      </div>
+      <div class="status-num">
+        <div class="n">12</div>
+        <div class="l">заяв подано</div>
+      </div>
+    </div>
+    <div class="status-note">
+      ⏳ Подача заяв ще триває до <b>22 серпня, 18:00</b>. Якщо плануєш вступ (зокрема на контракт) і ще не подав(-ла) заяву — часу достатньо, але краще не відкладати.
+    </div>
+  </div>
+</header>
+
+<div class="wrap countdown-section">
+  <div class="countdown-card">
+    <div class="countdown-label">
+      <b>До завершення подачі заяв</b>
+      <span>Останній термін — 22 серпня 2026, 18:00</span>
+    </div>
+    <div class="countdown-timer" id="countdown">
+      <div class="cd-unit"><div class="v" id="cd-days">--</div><div class="u">днів</div></div>
+      <div class="cd-unit"><div class="v" id="cd-hours">--</div><div class="u">год</div></div>
+      <div class="cd-unit"><div class="v" id="cd-mins">--</div><div class="u">хв</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-eyebrow">Про програму</div>
+    <h2 class="sec-title">Що таке G7 на кафедрі ІТТС</h2>
+
+    <div class="about-card">
+      <p>Магістратура ІТТС в ІФНТУНГ за кодом <b>G7</b> — це вступ на кафедру
+        <a href="https://www.facebook.com/itts.nung/" target="_blank">Інформаційно-телекомунікаційних технологій та систем</a>
+        <a href="https://nung.edu.ua/department/iit" target="_blank">Факультету інформаційних технологій</a>
+        Івано-Франківського національного технічного університету нафти і газу.</p>
+
+      <ul class="detail-list">
+        <li><b>Ступінь</b><span>Магістр</span></li>
+        <li><b>Спеціальність</b><span>G7 — Автоматизація, комп'ютерно-інтегровані технології та робототехніка</span></li>
+        <li><b>Освітні програми</b><span>«Комп'ютеризовані системи управління та автоматика» тощо</span></li>
+        <li><b>Форма навчання</b><span>Денна</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="deadlines">
+  <div class="wrap">
+    <div class="sec-eyebrow">Календар</div>
+    <h2 class="sec-title">Повний шлях вступу до магістратури ІТТС</h2>
+    <p class="sec-sub">Від фахового випробування до зарахування — усі кроки в одному місці, щоб нічого не пропустити.</p>
+
+    <div class="timeline">
+      <div class="tl-line"></div>
+
+      <div class="tl-item done">
+        <div class="tl-dot">✓</div>
+        <div class="tl-date">29 липня</div>
+        <div class="tl-h">Фахове випробування складено</div>
+        <div class="tl-p">Результати внесено до відомості приймальної комісії ІФНТУНГ.</div>
+      </div>
+
+      <div class="tl-item current">
+        <div class="tl-dot">●</div>
+        <div class="tl-date">7–22 серпня, до 18:00</div>
+        <div class="tl-h">Подання заяв <span class="tag-current">Зараз тут</span></div>
+        <div class="tl-p">12 вступників кафедри ІТТС вже подали заяви. Вікно подачі відкрите до 22 серпня — встигни, якщо ще не подав(-ла), зокрема на контракт.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">28</div>
+        <div class="tl-date">до 28 серпня</div>
+        <div class="tl-h">Формування рейтингу</div>
+        <div class="tl-p">Приймальна комісія формує рейтингові списки та надає рекомендації на бюджетні місця. Слідкуй за статусом заяви в кабінеті.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">31</div>
+        <div class="tl-date">до 31 серпня</div>
+        <div class="tl-h">Підтвердження заяви + оригінали документів</div>
+        <div class="tl-p">Після рекомендації — підтвердити заяву (Дія.Підпис/КЕП) і принести оригінали документів до приймальної комісії. Критичний крок для бюджету.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div class="tl-date">до 1 вересня</div>
+        <div class="tl-h">Зарахування на бюджет</div>
+        <div class="tl-p">Видання наказу про зарахування для тих, хто підтвердив заяву та подав документи вчасно.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">14</div>
+        <div class="tl-date">до 14 вересня</div>
+        <div class="tl-h">Зарахування на контракт</div>
+        <div class="tl-p">Друга хвиля — вакантні місця за контрактом, для тих, хто не потрапив на бюджет або обрав контракт свідомо.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="algorithm">
+  <div class="wrap">
+    <div class="sec-eyebrow">Найчастіша плутанина</div>
+    <h2 class="sec-title">Реєстрація ≠ заява</h2>
+    <p class="sec-sub">Це питання ставлять частіше за все в чаті абітурієнтів — розбираємось раз і назавжди.</p>
+
+    <div class="callout">
+      <div class="ch">⚠ Це різні дії в одному кабінеті</div>
+      <p><b>Реєстрація в кабінеті</b> для допуску до фахового випробування — це лише перепустка на іспит. <b>Заява на вступ</b> — окрема дія в розділі «Заяви» кабінету, де ти обираєш заклад, спеціальність і освітню програму. Саме заява ставить тебе в конкурс. Якщо ти складав іспит — це ще не означає, що заяву вже подано.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="info-card">
+        <div class="ic-h">Крок 1 — Кабінет</div>
+        <div class="ic-p">vstup.edbo.gov.ua → «Електронний кабінет вступника» → той самий логін, яким реєструвались на іспит.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-h">Крок 2 — Заяви</div>
+        <div class="ic-p">Розділ «Заяви» → «Додати заяву» → заклад ІФНТУНГ, спеціальність 174 (G7), ОП «Комп'ютеризовані системи управління та автоматика».</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-h">Крок 3 — Пріоритет</div>
+        <div class="ic-p">Якщо кафедра ІТТС — основний вибір, постав пріоритет 1. Змінити пріоритет після реєстрації заяви університетом вже не можна.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-h">Крок 4 — Підтвердження</div>
+        <div class="ic-p">Після рекомендації (до 28 серпня) — одразу підтвердь заяву. Це фінальний крок, без нього місце не закріплюється.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="sec-eyebrow">Кар'єра</div>
+    <h2 class="sec-title">🚀 Твоя кар'єра та практика з партнерами ІТТС</h2>
+    <p class="sec-sub">Навчання на кафедрі ІТТС побудоване на практиці та дуальній освіті. Завдяки тісній співпраці кафедри з лідерами ринку, ти почнеш будувати кар'єру ще під час навчання у магістратурі.</p>
+
+    <h3 style="font-size:17px; margin-bottom:6px;">💼 Де ти будеш проходити практику та працювати?</h3>
+    <ul class="career-list">
+      <li><b>Сфера IT та розробки софту</b>Стажуйся та працюй у найбільших IT-компаніях України, таких як SoftServe чи ТОВ «ЕКТОС І-Ф», створюючи програмне забезпечення для веборієнтованих систем та індустріальних IoT-рішень.</li>
+      <li><b>Телекомунікації та мережеві технології</b>Вивчай архітектуру хмарних сервісів та мереж 5G разом із гігантами зв'язку — Huawei Україна, Vodafone, Київстар та Укртелеком.</li>
+      <li><b>Автоматизація та Індустрія 4.0</b>Опановуй сучасні промислові контролери та робототехніку безпосередньо на виробничих потужностях ДП «ВО «Карпати»» (де діє філія кафедри) або проєктуй системи автоматизації з обладнанням від Siemens та Phoenix Contact Україна.</li>
+      <li><b>Енергетичний та нафтогазовий сектор</b>Впроваджуй SCADA-системи та захищені канали зв'язку на стратегічних об'єктах Оператора ГТС України та АТ «Укртранснафта».</li>
+    </ul>
+
+    <h3 style="font-size:17px; margin:28px 0 6px;">🌟 Що це дає абітурієнту?</h3>
+    <table class="partner-table">
+      <tr><th>Можливість</th><th>Як це працює на кафедрі ІТТС</th></tr>
+      <tr><td>Сучасні лабораторії</td><td>Ти навчаєшся на реальних стендах Siemens та компонентах інтернету речей.</td></tr>
+      <tr><td>Дуальна освіта</td><td>Можна офіційно поєднувати роботу на підприємстві-партнері з навчанням.</td></tr>
+      <tr><td>Хакатони та воркшопи</td><td>Спільні заходи з SoftServe допомагають зібрати перше портфоліо проєктів.</td></tr>
+      <tr><td>Працевлаштування</td><td>Наших магістрів запрошують на роботу компанії-партнери ще до захисту диплому.</td></tr>
+    </table>
+
+    <div class="partners-tag-row">
+      <span class="partner-tag">Huawei Україна</span>
+      <span class="partner-tag">Vodafone Україна</span>
+      <span class="partner-tag">Київстар</span>
+      <span class="partner-tag">Укртелеком</span>
+      <span class="partner-tag">SoftServe</span>
+      <span class="partner-tag">Siemens</span>
+      <span class="partner-tag">Phoenix Contact Україна</span>
+      <span class="partner-tag">ТОВ «Західний ІТЦ»</span>
+      <span class="partner-tag">Оператор ГТС України</span>
+      <span class="partner-tag">АТ «Укртранснафта»</span>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-eyebrow"></div>
+    <h2 class="sec-title">Часті запитання про вступ</h2>
+
+    <details class="faq-item" open>
+      <summary class="faq-q">Які спеціальності та програми входять до блоку G7 на кафедрі ІТТС?</summary>
+      <div class="faq-a">
+        До цієї категорії належить підготовка магістрів за напрямом «Автоматизація, комп'ютерно-інтегровані технології та робототехніка». Кафедра пропонує сучасні міждисциплінарні програми, зокрема пов'язані з:
+        <ul>
+          <li>розробкою програмного забезпечення для веборієнтованих та індустріальних систем;</li>
+          <li>інтернетом речей (IoT);</li>
+          <li>SCADA-системами та роботизованими лініями.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Що потрібно скласти для вступу на магістратуру G7?</summary>
+      <div class="faq-a">
+        Для вступу на будь-яку форму навчання (бюджет чи контракт) обов'язковими є:
+        <ul>
+          <li><b>ЄВІ</b> (Єдиний вступний іспит) — іноземна мова та тест загальної навчальної компетентності (ТЗНК).</li>
+          <li><b>ЄФВВ</b> (Єдине фахове вступне випробування) з автоматизації та комп'ютерно-інтегрованих технологій, або внутрішній фаховий іспит в університеті — залежно від затверджених правил прийому на поточний рік.</li>
+        </ul>
+        <a class="link-btn" href="https://nung.edu.ua/news/vstup-mahistratura-2025" target="_blank">Джерело: nung.edu.ua ↗</a>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Які документи потрібні для подання заяви?</summary>
+      <div class="faq-a">
+        Після отримання рекомендації для підтвердження заяви знадобляться оригінали:
+        <ul>
+          <li>документ про здобуту вищу освіту (диплом бакалавра) з додатком;</li>
+          <li>паспорт (або інший документ, що посвідчує особу);</li>
+          <li>ідентифікаційний код (РНОКПП);</li>
+          <li>військово-обліковий документ (за наявності);</li>
+          <li>фотокартки — за вимогою приймальної комісії.</li>
+        </ul>
+        <div class="warn-box">⚠ Без підтвердженої заяви та поданих оригіналів документів у визначений термін рекомендація на бюджетне місце анулюється.</div>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Скільки коштує навчання на контракті?</summary>
+      <div class="faq-a">
+        Орієнтовна вартість навчання за контрактом (денна форма) на спеціальності G7 «Автоматизація, комп'ютерно-інтегровані технології та робототехніка» (магістратура) становить близько <b>50 700 грн за рік</b>.
+        <br>
+        <a class="link-btn" href="https://drive.google.com/file/d/1htRc_l3GSrnf6IC6MPyjuxCIkWE38RCS/view" target="_blank">Наказ про вартість навчання (Google Drive) ↗</a>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Де я зможу працювати після випуску?</summary>
+      <div class="faq-a">
+        Магістри галузі G7 мають широкі перспективи працевлаштування в:
+        <ul>
+          <li>ІТ-компаніях, що розробляють софт для рішень Industry 4.0 та Smart Home;</li>
+          <li>підприємствах нафтогазової та енергетичної галузей (автоматизація та моніторинг процесів);</li>
+          <li>компаніях-інтеграторах промислових мереж та робототехнічних комплексів.</li>
+        </ul>
+        <a class="link-btn" href="https://nung.edu.ua/department/institut-informaciynikh-tekhnologiy/vstupniku" target="_blank">Джерело: nung.edu.ua ↗</a>
+      </div>
+    </details>
+
+    <div class="qr-row">
+      <div class="qr-chip">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEIAQAAAACLjVdSAAABiklEQVR4nO2YuY4DMQxDH4P8/y9zCx3jLp0irDMDBGOFBUFY1CHz4Xl9AvwQ/xjxBsWXEWAZlAfAa5iO6YEhVXHIYuSObmE6pwdKTSwjnFcjo1uYDurRj+NuyIfLbmE6jzCZMV/m8U3EG0oBWSaMRO7oGqZzeugMyPF2dAvTGYSO7EjzAM6k2cJ0DCEQErIly9igS+8HjlpiUy9ZXYyNvYXpZL6EXTh6j7MH8R6mw34afSnZm8rds29hOnY/zvKSQ8zjrbfNL3L1HXHsPzq0hemYn9bw4upQ/QSv89Ocby0/vbrKUK3r/PRVcggJlN5al2SSxwrEaR057kcwj7f5afWnaaxdWoSz2CxiOoMoIdpDBbjr8CKmA4jICTmXYZU+YSO6bz92zLchSa4MTYm0helYva1RxecWCPnKenvs12uZnAMvOdBsYTqnR2aK0bM9rTHmtnw5EMofoViwS3fmSz6Wlb7RnnLd/Tj26+TYkqNLNapbmA7vg0qNcBOpS/EWpuP9x1d5/BA7EX/zoLzyr4UR2AAAAABJRU5ErkJggg==" alt="QR Telegram">
+        <div class="qc-label"><b>Telegram-чат</b>g7_itts_magistr_2026 — питання, статуси, підтримка</div>
+      </div>
+      <div class="qr-chip">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADoAQAAAADN0pXVAAABQElEQVR4nO2ZwQ7CMAxD7Wn//8uPQ5KuXDjQIUIFoFHFF1tJ3BCMXryOV+Af/QH0lBwnZGTMFOnJeVGvkCTLkgmpGWnKeVWvfGlOwRnpyflGFI9qbsTqMyiITHQjVjejpzQ0GkuGK9KT8woqKqFM74J6cl7M7/PEMWW3K+fV+ze8GVlhzBZp0D05L+fXWFhDNGXRPTnfgjo6N4YOFMevs7odFSDqOe6kOG3oV8fUv7IsLFwe3ZbzKho6RXZx9vK3WX0AjbqtT0TquWk9R0LTmYmRkqjyxpzfRM/4QtfvoirpLev5UA6QXLNkJbkx57fRab+BnIKHY/fkvFrPtc2orr0CPTkv929uM5yjpSXt6lczCs4Mg/CW8+SM2tm81LkDq3vReb+RF6/H/q4p51W9adBZzHiUdVPOK6j//6dsjT4AvdGao3we+rIAAAAASUVORK5CYII=" alt="QR Кабінет">
+        <div class="qc-label"><b>Кабінет вступника</b>vstup.edbo.gov.ua — подання та підтвердження заяви</div>
+      </div>
+      <div class="qr-chip">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUgAAAFIAQAAAAAab1qeAAACXUlEQVR4nO1a0W4DIQyzp/v/X/YeEgOdpolKmyBTqK7tHZaOWIE4EAqb7WMX2MhG/hoSsoMqP/NWmvdSFYvOIh8gOCMAMOhT3EWXe6tYdJ5PMIkTCVEgBCof+6eKRRfwGY2AKABUOqp//+zt/xopCCIEkCJAkd8j/+Lt/wT5ABhBhwAoeKYT4uytYtFt8f3rx7AqFh33z7FEMpZLcS6lS28Vi44jCRIkrTZDOcVcB5iA8+MsgUx1FH/X8CNaOeVqWsWi8/OdKd+pVTTFQ1HJdxWLjvMZnmnl7mvEdopsPf8WUhBIUBK0iHgSmTD1+rnbJAkhm5TiSYq/cvau1kvvICPoCAw177RIhEQ5aTo/zgpI+yF8wX4a6knyVcWi43xqZkI59wex2QU1n7vNrrgsnXPhHO7ZfO4jNYSnIzqQ+yKZHt0xzhLIB949BjBkaGwt565yZEplLLoASWaQhyIvIih7Kxja/oJxFkBGjk6fGSmnvl12fpWx6DifkW5yMOgFFN5UvmGcVZChPzWFktXTa9zv+L7bzFdyOFnUQirUfG625Czz+JGxz1oGK/0qFl2AFBehSUiublCef3T+vtueDN9ZxADkvmd+5bJKqoxF5+M7EKI9j4xcbTMeoP3zXWQEHRfYxDxnJO9Z5nDHOK9HPiM/14sWjUxJVvTHx1kF+VJfx3lePCpDvLiWsegCJGn20lc5DopJn35eMM5ayLm5BFDycXzsi1w0zquRS72i49HYHIE57f2QbeSo9VzKaL3lZHa7nvb9/H1NNZ3Ez8O6zjd321KAfODtjWzkz+0T1omJ5Y3b6rUAAAAASUVORK5CYII=" alt="QR Календар">
+        <div class="qc-label"><b>Календар кампанії</b>Офіційний календар вступу на сайті ІФНТУНГ</div>
+      </div>
+    </div>
+
+    <div class="faq-close">
+      <b>Не знайшли відповіді на своє запитання?</b>
+      <p>Приймальна комісія та відбіркова комісія ФІТ — вул. Карпатська, 15, 2-й поверх, каб. 25, м. Івано-Франківськ</p>
+      <p>📧 <a href="mailto:itts@nung.edu.ua">itts@nung.edu.ua</a> · 💬 <a href="https://t.me/g7_itts_magistr_2026" target="_blank">Telegram-чат g7_itts_magistr_2026</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Заплутався в кабінеті чи статусі заяви?</h2>
+      <p>Не гадай навмання — напиши прямо зараз, відповімо і підкажемо крок за кроком.</p>
+      <a class="btn-primary" href="https://t.me/g7_itts_magistr_2026" target="_blank">Написати в Telegram-чат ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div>
+      Кафедра ІТТС, ІФНТУНГ · вул. Карпатська, 15, м. Івано-Франківськ<br>
+      Приймальна комісія та відбіркова комісія ФІТ — 2-й поверх, каб. 25
+    </div>
+    <div>
+      <a href="mailto:itts@nung.edu.ua">itts@nung.edu.ua</a><br>
+      <a href="https://t.me/g7_itts_magistr_2026" target="_blank">Telegram-чат «g7_itts_magistr_2026»</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const target = new Date("2026-08-22T18:00:00+03:00").getTime();
+  function tick(){
+    const now = new Date().getTime();
+    const diff = Math.max(0, target - now);
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    document.getElementById('cd-days').textContent = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 30000);
+</script>
+
+</body>
+</html>
